@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1486721465 source:d:\my files\dsa\assignment4\q5\main.c
+	<stdio.h>
+	<stdlib.h>
+	<limits.h>
+
