@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1486917816 source:d:\my files\dsa\assignment4\q1\main.c
+	<stdio.h>
+	<stdlib.h>
+	<time.h>
+
