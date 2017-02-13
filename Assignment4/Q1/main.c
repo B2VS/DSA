@@ -30,25 +30,21 @@ void copy(Book *b1, Book *b2)
 
 void Ins_sort(Book **b, char ch, int n)
 {
-    int i, pos, check;
+    int i, pos;
     Book *c = (Book *) malloc(sizeof(Book));
     for (i = 1; i < n; ++i)
     {
         copy(c, b[i]);
         pos = i;
-        if (ch == 'p') check = b[pos]->price > c->price ? 1 : 0;
-        else if (ch == 'y') check = b[pos]->year > c->year ? 1 : 0;
-        while (pos > 0 && check)
+        while (pos > 0)
         {
+            if (ch == 'p' && b[pos - 1]->price <= c->price) break;
+            if (ch == 'y' && b[pos - 1]->year <= c->year) break;
             copy(b[pos], b[pos - 1]);
             pos--;
-
-            if (ch == 'p') check = b[pos]->price > c->price ? 1 : 0;
-            else if (ch == 'y') check = b[pos]->year > c->year ? 1 : 0;
         }
         copy(b[pos], c);
     }
-    //print(b, n);
 }
 
 int main()
@@ -65,7 +61,6 @@ int main()
     {
         b[i]->price = 100 * (float)((float)rand() / RAND_MAX);
         b[i]->year = 1960 + rand() % 55;
-        //printf("price: %f, year %d\n", b[i]->price, b[i]->year);
     }
     //storing
     fprintf(f, "%d\n", n);
@@ -84,11 +79,13 @@ int main()
         fscanf(f, "%f", &b[i]->price);
         fscanf(f, "%d", &b[i]->year);
     }
+    printf("IN main before sorting\n");
+    print(b, n);
     Ins_sort(b, 'p', n);
-    printf("Sorted by price...\n");
+    printf("\nSorted by price...\n");
     print(b, n);
     Ins_sort(b, 'y', n);
-    printf("Sorted by year...\n");
+    printf("\nSorted by year...\n");
     print(b, n);
     fclose(f);
 }
