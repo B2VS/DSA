@@ -80,12 +80,12 @@ int main()
         fscanf(f, "%d", &b[i]->year);
     }
     printf("IN main before sorting\n");
-    print(b, n);
+    //print(b, n);
     Ins_sort(b, 'p', n);
     printf("\nSorted by price...\n");
-    print(b, n);
+    //print(b, n);
     Ins_sort(b, 'y', n);
     printf("\nSorted by year...\n");
-    print(b, n);
+    //print(b, n);
     fclose(f);
 }

@@ -15,7 +15,7 @@ int main()
         scanf("%d", &arr[i]);
     qsort(arr, n, sizeof(int), cmpfunc);
     int start = 0, end = n - 1;
-    while (start <= end)
+    while (start < end)
     {
         if (arr[start] + arr[end] == k)
             break;
@@ -24,7 +24,7 @@ int main()
         else
             end--;
     }
-    if (start <= end) printf("Yes");
+    if (start < end) printf("Yes");
     else printf("No");
     return 0;
 }
