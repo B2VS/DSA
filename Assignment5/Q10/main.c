@@ -25,7 +25,7 @@ int cmp(char *a, char *b)
 
 char *Longest_Prefix(char *word, char **dict, int size)
 {
-    if (cmp(word, dict[size - 1]) == 0) return size - 1;
+    if (cmp(word, dict[size - 1]) == 0) return dict[size - 1];
     int start = 0, end = size - 2, mid;
     while (start <= end)
     {
