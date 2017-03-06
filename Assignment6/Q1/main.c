@@ -89,7 +89,17 @@ int main()
         curr = curr->next;
         prev->next = NULL;
     }
-    output(gs[0]);
-    output(gs[1]);
-    output(gs[2]);
+    if (gs[0] != NULL) h = gs[0];
+    else if (gs[1] != NULL) h = gs[1];
+    else h = gs[2];
+    curr = h;
+    for (i = 1; i < 3; ++i)
+    {
+        if (curr == NULL) continue;
+        while(curr->next != NULL)
+            curr = curr->next;
+        curr->next = gs[i];
+    }
+    printf("**************************************************\n");
+    output(h);
 }
