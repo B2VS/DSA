@@ -135,6 +135,7 @@ int main()
             loop = 0;
         push(stack, x, y, direction);
         direction = 0;
+        Print(output);
     }
     Print(output);
 }
